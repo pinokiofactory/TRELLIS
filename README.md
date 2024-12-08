@@ -1,4 +1,4 @@
 # TRELLIS
 
-A pinokio script for --recurse-submodules https://github.com/microsoft/TRELLIS.git
+A pinokio script for https://github.com/microsoft/TRELLIS.git
 
