@@ -23,13 +23,13 @@ module.exports = {
     {
       method: "shell.run",
       params: {
+        venv: "env",
         message: [
           "pip install pillow imageio imageio-ffmpeg tqdm easydict opencv-python-headless scipy ninja rembg onnxruntime trimesh xatlas pyvista pymeshfix igraph transformers",
           "pip install git+https://github.com/EasternJournalist/utils3d.git@9a4eb15e4021b67b12c460c7057d642626897ec8",
-          "pip install devicetorch gradio==4.44.1 gradio_litmodel3d==0.0.1"
+          "pip install gradio==4.44.1 gradio_litmodel3d==0.0.1"
           // "pip install -r requirements.txt" // Commented out as the repository does not have a requirements.txt
-        ],
-        venv: "env"
+        ]
       }
     },
     {
