@@ -13,7 +13,7 @@ module.exports = {
     },
     // windows nvidia
     {
-      "when": "true",
+      "when": "{{platform === 'win32' && gpu === 'nvidia'}}",
       "method": "shell.run",
       "params": {
         "venv": "{{args && args.venv ? args.venv : null}}",
@@ -33,7 +33,7 @@ module.exports = {
     },
     // linux nvidia
     {
-      "when": "false",
+      "when": "{{platform === 'linux' && gpu === 'nvidia'}}",
       "method": "shell.run",
       "params": {
         "venv": "{{args && args.venv ? args.venv : null}}",
@@ -52,7 +52,7 @@ module.exports = {
     },
     // linux rocm (amd)
     {
-      "when": "false",
+      "when": "{{platform === 'linux' && gpu === 'amd'}}",
       "method": "shell.run",
       "params": {
         "venv": "{{args && args.venv ? args.venv : null}}",
