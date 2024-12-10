@@ -7,7 +7,7 @@ module.exports = {
         "path": "{{args && args.path ? args.path : '.'}}",
         "message": [
           "python -m pip install --upgrade pip",
-          "pip install --upgrade setuptools wheel"
+          "pip install --upgrade setuptools wheel ninja"
         ]
       }
     },
