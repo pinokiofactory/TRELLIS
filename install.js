@@ -4,6 +4,14 @@ module.exports = {
       method: "shell.run",
       params: {
         message: [
+          "conda install -y conda-forge::ninja",
+        ]
+      }
+    },
+    {
+      method: "shell.run",
+      params: {
+        message: [
           "git clone --recurse-submodules https://github.com/microsoft/TRELLIS.git app",
         ]
       }
