@@ -20,7 +20,8 @@ module.exports = {
       method: "shell.run",
       params: {
         venv: "env",
-        message: "python install.py"
+        path: "app",
+        message: "python ../install.py"
       }
     },
     {
