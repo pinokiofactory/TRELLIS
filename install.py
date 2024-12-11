@@ -1,5 +1,6 @@
 import subprocess
 import sys
+import pkg_resources
 
 # List of installation commands
 install_commands = [
@@ -19,14 +20,44 @@ install_commands = [
 ]
 
 def check_and_install():
+    installation_results = []
+
+    # Run installation commands
     for command in install_commands:
         try:
             print(f"Starting installation for: {command}")
             subprocess.run(command, shell=True, check=True)
             print(f"Successfully executed: {command}")
+            installation_results.append((command, True, None))
         except subprocess.CalledProcessError as e:
             print(f"Error occurred while executing: {command}\n{e}")
-            break
+            installation_results.append((command, False, str(e)))
+
+    # Verify installed packages
+    print("\nVerifying package installations...")
+    verification_results = []
+    for command in install_commands:
+        package_name = command.split()[2] if "install" in command else "Unknown"
+        try:
+            if package_name != "Unknown":
+                pkg_resources.require(package_name)
+                verification_results.append((package_name, "✔", None))
+            else:
+                verification_results.append((package_name, "?", "Cannot verify package name"))
+        except pkg_resources.DistributionNotFound as e:
+            verification_results.append((package_name, "✘", "Not installed"))
+        except Exception as e:
+            verification_results.append((package_name, "✘", str(e)))
+
+    # Print results
+    print("\nInstallation Results:")
+    for result in installation_results:
+        status = "✔" if result[1] else "✘"
+        print(f"Command: {result[0]} | Status: {status} | Error: {result[2]}")
+
+    print("\nVerification Results:")
+    for result in verification_results:
+        print(f"Package: {result[0]} | Status: {result[1]} | Details: {result[2]}")
 
 if __name__ == "__main__":
     print("Starting package installation process...")
