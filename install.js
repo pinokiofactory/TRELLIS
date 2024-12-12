@@ -28,8 +28,8 @@ module.exports = {
         venv: "env",
         path: "app",                 
         message: [
-          "uv pip install git+https://github.com/JeffreyXiang/diffoctreerast.git --no-build-isolation",
-          "uv pip install git+https://github.com/sdbds/diff-gaussian-rasterization --no-build-isolation"
+          "uv pip install https://github.com/iiiytn1k/sd-webui-some-stuff/releases/download/diffoctreerast/diffoctreerast-0.0.0-cp310-cp310-win_amd64.whl", // "uv pip install git+https://github.com/JeffreyXiang/diffoctreerast.git --no-build-isolation",
+          "uv pip install https://github.com/sdbds/diff-gaussian-rasterization/releases/download/diff-gaussian-rasterization/diff_gaussian_rasterization-0.0.0-cp310-cp310-win_amd64.whl", // "uv pip install git+https://github.com/sdbds/diff-gaussian-rasterization --no-build-isolation"
         ]
       }
     },
