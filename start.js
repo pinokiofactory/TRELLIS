@@ -21,8 +21,7 @@ module.exports = {
         },                   
         path: "app",                
         message: [
-          "print('Generating Torch CUDA Architecture List for computer:')",
-          "python -c \"import torch; print(\\\";\\\".join([arch.replace(\\\"sm_\\\", \\\"\\\") for arch in torch.cuda.get_arch_list()]))\"", //Probably can remove in future, just here so I can visualize
+          "python -c \"import torch; print('Generating Torch CUDA Architecture List for computer:'); print(\\\";\\\".join([arch.replace(\\\"sm_\\\", \\\"\\\") for arch in torch.cuda.get_arch_list()]))\"", //Probably can remove in future, just here so I can visualize
           "python app.py",
         ],
         on: [{
