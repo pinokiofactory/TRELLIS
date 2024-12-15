@@ -15,7 +15,7 @@ pymeshfix
 igraph
 transformers
 git+https://github.com/EasternJournalist/utils3d.git@9a4eb15e4021b67b12c460c7057d642626897ec8
-https://github.com/MrForExample/Comfy3D_Pre_Builds/blob/main/_Build_Wheels/_Wheels_win_py310_torch2.5.1_cu124/nvdiffrast-0.3.3-py3-none-any.whl # git+https://github.com/NVlabs/nvdiffrast.git
+# git+https://github.com/NVlabs/nvdiffrast.git
 https://nvidia-kaolin.s3.us-east-2.amazonaws.com/torch-2.5.1_cu124/kaolin-0.17.0-cp310-cp310-win_amd64.whl ; platform_system == "Windows"
 https://nvidia-kaolin.s3.us-east-2.amazonaws.com/torch-2.5.1_cu124/kaolin-0.17.0-cp310-cp310-linux_x86_64.whl ; platform_system == "Linux"
 gradio==4.44.1
