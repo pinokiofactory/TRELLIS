@@ -4,11 +4,25 @@ module.exports = {
     {
       method: "shell.run",
       params: {
-        venv: "env",                // Edit this to customize the venv folder path
-        env: { },                   // Edit this to customize environment variables (see documentation)
-        path: "app",                // Edit this to customize the path to start the shell from
+        venv: "env",
+        env: {
+          "ATTN_BACKEND": "xformers",
+          "SPCONV_ALGO": "native",
+          "TORCH_CUDA_ARCH_LIST": (() => {
+            const { execSync } = require('child_process');
+            try {
+              const archList = execSync('python -c "import torch; print(\";\".join([arch.replace(\"sm_\", \"\") for arch in torch.cuda.get_arch_list()]))"', { encoding: 'utf8' });
+              return archList.trim();
+            } catch (error) {
+              console.error("Error fetching CUDA architectures:", error);
+              return ""; // Fallback to an empty string if command fails
+            }
+          })()
+        },                   
+        path: "app",                
         message: [
-          "python app.py",    // Edit with your custom commands
+          "python -c \"import torch; print(\\\";\\\".join([arch.replace(\\\"sm_\\\", \\\"\\\") for arch in torch.cuda.get_arch_list()]))\"", //Probably can remove in future, just here so I can visualize
+          "python app.py",
         ],
         on: [{
           // The regular expression pattern to monitor.

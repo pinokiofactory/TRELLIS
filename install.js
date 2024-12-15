@@ -4,28 +4,8 @@ module.exports = {
       method: "shell.run",
       params: {
         message: [
-          "conda install -y conda-forge::ninja",
-        ]
-      }
-    },
-    {
-      method: "shell.run",
-      params: {
-        message: [
           "git clone --recurse-submodules https://github.com/microsoft/TRELLIS.git app",
         ]
-      }
-    },
-    // Delete this step if your project does not use torch
-    {
-      method: "script.start",
-      params: {
-        uri: "torch.js",
-        params: {
-          venv: "env",                // Edit this to customize the venv folder path
-          path: "app",                // Edit this to customize the path to start the shell from
-          xformers: true   // uncomment this line if your project requires xformers
-        }
       }
     },
     {
@@ -34,18 +14,39 @@ module.exports = {
         venv: "env",
         path: "app",
         message: [
-          "pip install pillow imageio imageio-ffmpeg tqdm easydict opencv-python-headless scipy rembg onnxruntime trimesh xatlas pyvista pymeshfix igraph transformers",
-          "pip install git+https://github.com/EasternJournalist/utils3d.git@9a4eb15e4021b67b12c460c7057d642626897ec8",
-          "pip install gradio gradio_litmodel3d==0.0.1"
-          // "pip install -r requirements.txt" // Commented out as the repository does not have a requirements.txt
+          "uv pip install -U xformers torch==2.5.1 torchvision --index-url https://download.pytorch.org/whl/cu124",
+          "uv pip install -r ../requirements.txt",
+          "uv pip install huggingface_hub hf_transfer",
+          "uv pip install -U setuptools wheel ninja",
+          "uv pip install https://github.com/woct0rdho/triton-windows/releases/download/v3.1.0-windows.post5/triton-3.1.0-cp310-cp310-win_amd64.whl"
         ]
       }
     },
     {
-      method: "log",
+      method: "shell.run",
       params: {
-        raw: "Setup process completed successfully!"
+        venv: "env",
+        path: "app",                 
+        message: [
+          "uv pip install https://github.com/iiiytn1k/sd-webui-some-stuff/releases/download/diffoctreerast/diffoctreerast-0.0.0-cp310-cp310-win_amd64.whl", // "uv pip install git+https://github.com/JeffreyXiang/diffoctreerast.git --no-build-isolation",
+          "uv pip install https://github.com/sdbds/diff-gaussian-rasterization/releases/download/diff-gaussian-rasterization/diff_gaussian_rasterization-0.0.0-cp310-cp310-win_amd64.whl", // "uv pip install git+https://github.com/sdbds/diff-gaussian-rasterization --no-build-isolation"
+        ]
+      }
+    },
+    {
+      method: "fs.link",
+      params: {
+        venv: "app/env"             
+      }
+    },
+    {
+      method: "shell.run",
+      params: {
+        message: [
+          "echo Optimising pipeline script...",
+          "curl -o app/trellis/pipelines/trellis_image_to_3d.py https://raw.githubusercontent.com/0lento/TRELLIS/refs/heads/low-vram/trellis/pipelines/trellis_image_to_3d.py"
+        ]
       }
     }
   ]
-}
+};
