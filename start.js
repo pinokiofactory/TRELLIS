@@ -8,16 +8,7 @@ module.exports = {
         env: {
           "ATTN_BACKEND": "xformers",
           "SPCONV_ALGO": "native",
-          "TORCH_CUDA_ARCH_LIST": (() => {
-            const { execSync } = require('child_process');
-            try {
-              const archList = execSync('python -c "import torch; print(\";\".join([arch.replace(\"sm_\", \"\") for arch in torch.cuda.get_arch_list()]))"', { encoding: 'utf8' });
-              return archList.trim();
-            } catch (error) {
-              console.error("Error fetching CUDA architectures:", error);
-              return ""; // Fallback to an empty string if command fails
-            }
-          })()
+          "TORCH_CUDA_ARCH_LIST": "50;60;61;70;75;80;86;90"
         },                   
         path: "app",                
         message: [
