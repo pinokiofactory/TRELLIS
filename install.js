@@ -15,7 +15,7 @@ module.exports = {
         path: "app",
         message: [          
           "uv pip install -U setuptools wheel ninja",
-          // "uv pip install -U xformers torch==2.5.1 torchvision --index-url https://download.pytorch.org/whl/cu124",
+          "uv pip install -U xformers torch==2.5.1 torchvision --index-url https://download.pytorch.org/whl/cu124",
           "uv pip install -r ../requirements.txt --index-url https://download.pytorch.org/whl/cu124",
           // "uv pip install huggingface_hub hf_transfer",
           // "uv pip install https://github.com/woct0rdho/triton-windows/releases/download/v3.1.0-windows.post5/triton-3.1.0-cp310-cp310-win_amd64.whl"
