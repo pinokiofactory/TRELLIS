@@ -8,7 +8,7 @@ module.exports = {
         env: {
           "ATTN_BACKEND": "xformers",
           "SPCONV_ALGO": "native",
-          "TORCH_CUDA_ARCH_LIST": "50;60;61;70;75;80;86;90"
+          "TORCH_CUDA_ARCH_LIST": "50;60;61;70;75;80;86;89;90"
         },                   
         path: "app",                
         message: [
