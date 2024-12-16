@@ -43,8 +43,7 @@ module.exports = {
       method: "shell.run",
       params: {
         message: [
-          "echo Optimising pipeline script...",
-          "curl -o app/trellis/pipelines/trellis_image_to_3d.py https://raw.githubusercontent.com/0lento/TRELLIS/refs/heads/low-vram/trellis/pipelines/trellis_image_to_3d.py"
+          "echo Optimising pipeline script... && curl -o app/trellis/pipelines/trellis_image_to_3d.py https://raw.githubusercontent.com/0lento/TRELLIS/refs/heads/low-vram/trellis/pipelines/trellis_image_to_3d.py"
         ]
       }
     }
