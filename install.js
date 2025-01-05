@@ -14,8 +14,27 @@ module.exports = {
         venv: "env",
         path: "app",
         message: [          
-          "uv pip install -U setuptools wheel ninja",
-          "uv pip install -U xformers torch==2.5.1 torchvision --index-url https://download.pytorch.org/whl/cu124",
+          "uv pip install -U setuptools wheel ninja"
+        ]
+      }
+    },
+    {
+      method: "script.start",
+      params: {
+        uri: "torch.js",
+        params: {
+          venv: "env",
+          path: "app",
+          xformers: true
+        }
+      }
+    },
+    {
+      method: "shell.run",
+      params: {
+        venv: "env",
+        path: "app",
+        message: [
           "uv pip install -r ../requirements.txt",
           "uv pip install huggingface_hub hf_transfer"
         ]
