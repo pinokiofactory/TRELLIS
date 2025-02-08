@@ -1,7 +1,7 @@
 const path = require('path')
 module.exports = {
-  version: "3.0",
-  title: "TRELLIS",
+  version: "3.2",
+  title: "TRELLIS_Remake_v3",
   description: "",
   icon: "icon.png",
   menu: async (kernel, info) => {
