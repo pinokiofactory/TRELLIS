@@ -41,12 +41,12 @@ module.exports = {
           "uv pip sync ../requirements-uv.txt"
         ]
       }
-    },
-    {
-      method: "fs.link",
-      params: {
-        venv: "app/env"
-      }
     }
+    // {
+    //   method: "fs.link",
+    //   params: {
+    //     venv: "app/env"
+    //   }
+    // }
   ]
 }
