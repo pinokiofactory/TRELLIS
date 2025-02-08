@@ -30,7 +30,7 @@ module.exports = {
           "UV_INDEX": "https://download.pytorch.org/whl/cu121 https://download.pytorch.org/whl/cu124",
           "UV_FIND_LINKS": "https://nvidia-kaolin.s3.us-east-2.amazonaws.com/torch-2.5.1_cu121.html",
           "UV_INDEX_STRATEGY": "unsafe-best-match",
-          "UV_NO_BUILD_ISOLATION": true,
+          "UV_NO_BUILD_ISOLATION": 1,
           "UV_LINK_MODE": "symlink"
         },
         venv: "env",                // Edit this to customize the venv folder path
