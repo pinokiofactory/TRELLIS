@@ -31,7 +31,6 @@ module.exports = {
           // "UV_FIND_LINKS": "https://nvidia-kaolin.s3.us-east-2.amazonaws.com/torch-2.5.1_cu124.html",
           "UV_INDEX_STRATEGY": "unsafe-best-match",
           "UV_NO_BUILD_ISOLATION": 1,
-          "UV_LINK_MODE": "symlink",
           "USE_NINJA": 0,
           "DISTUTILS_USE_SDK": 1
         },
@@ -40,7 +39,7 @@ module.exports = {
         build: true,
         message: [
           // "uv pip install gradio devicetorch",
-          "uv pip sync ../requirements-uv.txt"
+          "uv pip install -r ../requirements-uv.txt"
         ]
       }
     }
