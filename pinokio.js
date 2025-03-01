@@ -1,6 +1,6 @@
 const path = require('path')
 module.exports = {
-  version: "3.0",
+  version: "3.2",
   title: "TRELLIS",
   description: "",
   icon: "icon.png",
