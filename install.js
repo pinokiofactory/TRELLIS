@@ -38,7 +38,7 @@ module.exports = {
         path: "app",                // Edit this to customize the path to start the shell from
         build: true,
         message: [
-          // "uv pip install gradio devicetorch",
+          "uv pip install wheel open3d",
           "uv pip install -r ../requirements-uv.txt"
         ]
       }

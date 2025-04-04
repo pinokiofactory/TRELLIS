@@ -4,6 +4,7 @@ module.exports = {
     {
       method: "shell.run",
       params: {
+        build: true,
         venv: "env",                // Edit this to customize the venv folder path
         env: {
           "ATTN_BACKEND": "xformers",
