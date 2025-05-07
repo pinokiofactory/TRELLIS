@@ -39,6 +39,7 @@ module.exports = {
         build: true,
         message: [
           "uv pip install wheel open3d",
+          "uv pip install -U setuptools",
           "uv pip install -r ../requirements-uv.txt"
         ]
       }
